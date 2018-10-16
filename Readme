@@ -1,0 +1,1 @@
+Simple project to show how ansible can used to deploy a 3 tier web app - web server pool, DB (CloudSQL, or hosted *SQL instance), Load balanced and on a private network.
