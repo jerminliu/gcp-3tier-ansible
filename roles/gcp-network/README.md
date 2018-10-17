@@ -56,4 +56,5 @@ site.yml:
 
 bash$ ansible-playbook site.yml
 bash$ ansible-playbook site.yml -e activity=provision (this is the default activity)
-bash$ ansible-playbook site.yml -e activity=destroy 
+bash$ ansible-playbook site.yml -e activity=destroy
+bash$ ansible-playbook site.yml -e "activity=destroy vpc_network_name=some_net_name private_subnet_name=some_subnet_name" * Assumes credentials,service account and project are defined in main vars or passed in as additional extra variables 
