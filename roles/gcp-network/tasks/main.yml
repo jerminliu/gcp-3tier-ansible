@@ -1,19 +1,10 @@
 ---
-# tasks file for gcp-network
-#
-## Create Custom Subnetwork
-- name: "Create Custom Subnetwork"
-  gce_net:
-    name: "{{ vpc_network_name }}"
-    credentials_file: "{{ credentials_file }}"
-    mode: custom
-    subnet_name: "{{ private_subnet_name }}"
-    subnet_region: "{{ zone }}"
-    ipv4_range: "{{ private_subnet_range }}"
-    service_account_email: "{{ service_account_email }}"
-    state: "present"
-    project_id: "{{ project_id }}"
-   
+- name: verifying activity
+  fail:
+    msg: "Activity must be provision or destroy."
+  when:
+    - activity != "destroy"
+    - activity != "provision"
 
 
- 
+- include_tasks: "{{ activity }}.yml"

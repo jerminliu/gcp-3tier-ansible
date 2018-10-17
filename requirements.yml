@@ -1,0 +1,3 @@
+---
+ - src: https://github.com/ArctiqTeam/ansible-role-compute-engine
+   name: ansible-role-compute-engine
