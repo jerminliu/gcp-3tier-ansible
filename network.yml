@@ -1,0 +1,7 @@
+---
+- name: Build Custom Subnet
+  hosts: localhost
+  vars_files:
+     - gcp_vars.yml
+  roles: 
+     - gcp-network

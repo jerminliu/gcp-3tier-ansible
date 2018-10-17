@@ -1,0 +1,16 @@
+
+# GCP Specific Variables
+    service_account_email: ''
+    credentials_file: '/path/to/json' 
+    project_id: ''
+    machine_type: 'n1-standard-1' # Change to your selection
+    image: 'debian-7' # Required -  change to your selection
+    region: 'us-east1-b' # Required - change to your prefered selection
+    zone: 'us-east1'  # Required - change to prefered selection
+
+# GCP Network Vars
+    vpc_network_name: '' #Required
+    private_subnet_name: '' #Required
+    private_subnet_range: "10.10.10.0/24" # Required - Update to your network subnet range 
+
+
