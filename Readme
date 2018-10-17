@@ -1,1 +1,6 @@
 Simple project to show how ansible can used to deploy a 3 tier web app - web server pool, DB (CloudSQL, or hosted *SQL instance), Load balanced and on a private network.
+
+Pre-Reqs:
+- Locally installed Ansible
+- apache-libcloud module: pip install apache-libcloud
+- Service Account for Google Cloud - Project Admin, create and save json credential key file

@@ -4,7 +4,7 @@
     credentials_file: "{{ credentials_file }}"
     mode: custom
     subnet_name: "{{ private_subnet_name }}"
-    subnet_region: "{{ zone }}"
+    subnet_region: "{{ region }}"
     ipv4_range: "{{ private_subnet_range }}"
     service_account_email: "{{ service_account_email }}"
     state: "absent"

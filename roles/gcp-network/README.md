@@ -1,38 +1,59 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Role for interacting with GPC VPC Network environments - Create/Destroy/Firewall rules/Subnets
+
+Current: Can create network and subnet. Can destroy subnet
+Next: Destroy network, add firewall rules
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role uses the gce_net module (https://docs.ansible.com/ansible/2.5/modules/gce_net_module.html)
+
+python >= 2.6
+apache-libcloud >= 0.13.3, >= 0.17.0 if using JSON credentials
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Defaults (defaults/main.yml):
+#GCP Specific Variables
+    region: us-east1
+    zone: b
 
-Dependencies
-------------
+# GCP Network Vars
+    vpc_network_name: 'My Network'  
+    private_subnet_name: 'My subnet'
+    private_subnet_range: "10.10.10.0/24"
+    activity: provision
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Configurable (vars/main.yml):
+
+#GCP Specific Variables
+    service_account_email: REQUIRED
+    credentials_file: REQUIRED
+    project_id: REQUIRED
+    region: 
+    zone: 
+
+# GCP Network Vars
+    vpc_network_name:  
+    private_subnet_name: 
+    private_subnet_range: *ie 10.10.10.0/24
+
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+site.yml: 
+---
+- name: Build Custom Subnet
+  hosts: localhost
+  roles: 
+     - gcp-network
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+bash$ ansible-playbook site.yml
+bash$ ansible-playbook site.yml -e activity=provision (this is the default activity)
+bash$ ansible-playbook site.yml -e activity=destroy 
