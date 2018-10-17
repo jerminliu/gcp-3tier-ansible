@@ -3,8 +3,8 @@ Role Name
 
 Role for interacting with GPC VPC Network environments - Create/Destroy/Firewall rules/Subnets
 
-Current: Can create network and subnet. Can destroy subnet
-Next: Destroy network, add firewall rules
+Current: Can create network and subnet. Can destroy subnet and network.
+Next: Add/Remove firewall rules
 
 Requirements
 ------------

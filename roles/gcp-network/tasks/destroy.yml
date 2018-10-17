@@ -9,3 +9,11 @@
     service_account_email: "{{ service_account_email }}"
     state: "absent"
     project_id: "{{ project_id }}"
+
+- name: "Destroy Custom VPC Network"
+  gce_net:
+    name: "{{ vpc_network_name }}"
+    credentials_file: "{{ credentials_file }}"
+    service_account_email: "{{ service_account_email }}"
+    project_id: "{{ project_id }}"
+    state: "absent"
